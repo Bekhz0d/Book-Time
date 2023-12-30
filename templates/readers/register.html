@@ -8,7 +8,7 @@
 
     <div class="row">
         <div class="col-4">
-            <form action="{% url 'users:register' %}" method="POST">
+            <form action="{% url 'readers:register' %}" method="POST">
                 {% csrf_token %}
                 {{ form | crispy }}
                 <button class="btn btn-primary" type="submit">Submit</button>

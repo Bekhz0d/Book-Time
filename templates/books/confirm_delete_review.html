@@ -9,7 +9,7 @@
     <p><b>Book:</b> {{ book.title }}</p>
     <p><b>Comment:</b> {{ review.comment }}</p>
 
-    <a class="btn btn-outline-danger me-2" href="{% url 'books:delete-review' book.id review.id %}">Yes</a>
-    <a class="btn btn-outline-primary" href="{% url 'books:detail_page' book.id %}">No</a>
+    <a class="btn btn-outline-danger me-2" href="{% url 'main:delete-review' book.id review.id %}">Yes</a>
+    <a class="btn btn-outline-primary" href="{% url 'main:detail_page' book.id %}">No</a>
 
 {% endblock %}

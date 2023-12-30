@@ -20,7 +20,7 @@
                         <img class="cover-pic" src="{{ book.picture.url }}" alt="">
                     </div>
                     <div class="col-6">
-                        <a href="{% url 'books:detail_page' book.id %}">{{ book.title }}</a>
+                        <a href="{% url 'main:detail_page' book.id %}">{{ book.title }}</a>
                         <p>{{ book.description | truncatechars:750 }}</p>
                     </div>
                 </div>

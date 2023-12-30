@@ -1,12 +1,10 @@
 from django.contrib import admin
-from main.models import Book, BookAuthor, BookReview, ReaderRead, \
-    ReaderReading, ReaderWillRead, ReaderRecommend
+from main.models import Readers
 
 
-admin.site.register(Book)
-admin.site.register(BookAuthor)
-admin.site.register(BookReview)
-admin.site.register(ReaderRead)
-admin.site.register(ReaderReading)
-admin.site.register(ReaderWillRead)
-admin.site.register(ReaderRecommend)
+class ReaderAdmin(admin.ModelAdmin):
+    list_display = ('username', 'first_name', 'last_name', 'phone', 'email', 'address')
+    search_fields = ('usename', 'first_name', 'last_name', 'email', 'address', 'phone')
+
+
+admin.site.register(Readers, ReaderAdmin)

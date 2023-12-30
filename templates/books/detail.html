@@ -27,7 +27,7 @@
 
 <div class="row">
     <div class="col-6">
-        <form method="post" action="{% url 'books:reviews' book.pk %}">
+        <form method="post" action="{% url 'main:reviews' book.pk %}">
             {% csrf_token %}
             {{ review_form |crispy}}
             <button class="btn btn-success mb-3">Add review</button>
@@ -46,8 +46,8 @@
             <b>{{ review.user.username}}</b> rated it {{ review.stars_given }} stars 
             <span class="fw-lighter">{{ review.created_at }}</span>
             {% if review.user == request.user %}
-                <a href="{% url 'books:edit-review' book.id review.id %}"><i class="bi bi-pen"></i></a>
-                <a href="{% url 'books:confirm-delete-review' book.id review.id %}"><i class="bi bi-trash"></i></a>
+                <a href="{% url 'main:edit-review' book.id review.id %}"><i class="bi bi-pen"></i></a>
+                <a href="{% url 'main:confirm-delete-review' book.id review.id %}"><i class="bi bi-trash"></i></a>
             {% endif %}
             <p class="mt-2 font-monospace">{{ review.comment }}</p>
         </div>    
