@@ -9,6 +9,8 @@
         <span class="name mt-3">{{ user.first_name }} {{ user.last_name }}</span>
         <span class="idd">@{{ user.username }}</span>
         <span class="idd">{{ user.email }}</span>
+        <span class="idd">{{ user.phone }}</span>
+        <span class="idd">{{ user.address }}</span>
         <div class="d-flex mt-2"><a class="btn btn-dark" href="{% url 'readers:profile-edit' %}">Edit Profile</a></div>
         <div class="px-2 rounded mt-4 date"><span class="join">Joinned {{ user.date_joined | date:"M d, Y" }}</span></div>
     </div>

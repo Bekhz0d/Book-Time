@@ -1,10 +1,11 @@
 from django.shortcuts import render, redirect
 from django.views import View
-from readers.forms import ReaderCreateForm, ReaderUpdateForm
+from readers.forms import ReaderCreateForm, ProfileUpdateForm
 from django.contrib.auth.forms import AuthenticationForm
 from django.contrib.auth.mixins import LoginRequiredMixin
 from django.contrib.auth import login, logout
 from django.contrib import messages
+from readers.models import Readers
 
 
 class RegisterView(View):
@@ -50,9 +51,10 @@ class LoginView(View):
 
 class ProfileView(LoginRequiredMixin, View):
     def get(self, request):
+        reader = Readers.objects.get(username=request.user.username)
         if not request.user.is_authenticated:
             return redirect("readers:login")
-        return render(request, "readers/profile.html", {"user": request.user})
+        return render(request, "readers/profile.html", {"user": reader})
 
 
 class LogoutView(LoginRequiredMixin, View):
@@ -64,12 +66,12 @@ class LogoutView(LoginRequiredMixin, View):
 
 class ProfileUpdateView(LoginRequiredMixin, View):
     def get(self, request):
-        user_update_form = ReaderUpdateForm(instance=request.user)
+        user_update_form = ProfileUpdateForm(instance=request.user)
 
         return render(request, "readers/profile_edit.html", {"form": user_update_form})
     
     def post(self, request):
-        user_update_form = ReaderUpdateForm(instance=request.user,
+        user_update_form = ProfileUpdateForm(instance=request.user,
                                           data=request.POST,
                                           files=request.FILES
                                           )
