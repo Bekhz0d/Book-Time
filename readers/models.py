@@ -20,3 +20,14 @@ class Readers(AbstractUser):
         verbose_name = 'Reader'
         verbose_name_plural = 'Readers'
         
+
+class Payment(models.Model):
+    reader = models.ForeignKey(Readers, related_name='payment_reader', on_delete=models.DO_NOTHING)
+    payment_amount = models.DecimalField(max_digits=8, decimal_places=2)
+    payment_date = models.DateTimeField(auto_now_add=True)
+    payment_update_date = models.DateTimeField(auto_now=True)
+    payee = models.ForeignKey(Readers, related_name='payment_payee', on_delete=models.DO_NOTHING)
+
+    def __str__(self):
+        return f"{self.reader.first_name} {self.reader.last_name} ({self.payment_amount}) to'ladi"
+    

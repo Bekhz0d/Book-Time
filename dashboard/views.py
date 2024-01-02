@@ -4,7 +4,7 @@ from django.contrib.auth.mixins import UserPassesTestMixin
 from readers.models import Readers
 from django.contrib import messages
 from django.urls import reverse
-from dashboard.forms import ReaderUpdateForm
+from dashboard.forms import ReaderUpdateForm, ReaderCreateForm
 from django.db.models import Q
 
 
@@ -64,3 +64,20 @@ class EditReaderView(SuperuserRequiredMixin, View):
             return redirect(reverse('dashboard:dashboard'))
 
         return render(request, 'dashboard/edit_reader.html', {'reader_form': reader_form})
+
+
+
+class AddReaderView(SuperuserRequiredMixin, View):
+    def get(self, request):
+        add_reader_form = ReaderCreateForm()
+        
+        return render(request, 'dashboard/add_reader.html', {'add_reader_form': add_reader_form})
+
+    def post(self, request):
+        add_reader_form = ReaderCreateForm(data=request.POST)
+
+        if add_reader_form.is_valid():
+            add_reader_form.save()
+            return redirect(reverse('dashboard:dashboard'))
+        
+        return render(request, 'dashboard/add_reader.html', {'add_reader_form': add_reader_form})

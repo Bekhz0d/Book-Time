@@ -1,19 +1,18 @@
 {% extends 'base.html' %}
 
-{% load static %}
 {% load crispy_forms_tags %}
 
-{% block title %}Edit Reader {% endblock %}
+{% block title %} Add Reader {% endblock %}
 
 {% block content %}
 
-    <h3>Edit Reader</h3>
+    <h3>To add a reader, fill out the form below</h3>
 
     <div class="row">
         <div class="col-6 align-self-center">
-            <form method="post">
+            <form action="{% url 'dashboard:add_reader' %}" method="POST">
                 {% csrf_token %}
-                {{ reader_form |crispy}}
+                {{ add_reader_form | crispy }}
                 <button class="btn btn-success mb-3">Save</button>
             </form>
         </div>

@@ -5,7 +5,8 @@ from readers.models import Readers
 class ReaderCreateForm(forms.ModelForm):
     class Meta:
         model = Readers
-        fields = ("username", "first_name", "last_name", "email", "password", "phone", "address", "picture")
+        fields = ("username", "first_name", "last_name", "email", 
+                  "password", "phone", "address", "picture")
 
     def save(self, commit=True):
         user = super().save(commit)
