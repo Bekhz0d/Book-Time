@@ -1,0 +1,32 @@
+{% extends 'base.html' %}
+
+{% load crispy_forms_tags %}
+
+{% block title %}Billings{% endblock %}
+
+{% block content %}
+
+<h3>{{ reader.first_name }} {{ reader.last_name }}</h3>
+<br>
+<div class="mb-4">
+<h4>current balance: <u> {{ reader.balance }} $</u></h4>
+</div>
+
+    {% if reader.payment_reader.exists %}
+        {% for payment in last_payments %}
+            <p class="my-2">last payment:  <b class="me-5">{{ payment.payment_amount }} $</b>
+                <span class="ms-5"> {{ payment.payment_date }}</span>
+                {% if payment.payment_edited %}<span>(edited: {{ payment.payment_update_date }})</span>{% endif %}
+            </p>
+        {% endfor %}
+    {% endif %}
+
+
+
+<div class="mt-5">
+    <a class="btn btn-outline-success me-2" href="{% url 'dashboard:to_pay' reader.id %}">to pay</a>
+    <a class="btn btn-outline-primary" href="{% url 'dashboard:edit_pay' reader.id %}">edit</a>
+</div>
+
+
+{% endblock %}

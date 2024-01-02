@@ -2,182 +2,185 @@
 {% block title %}BookTime Dashboard{% endblock %}
 {% block content %}
 
-        <!-- PAGE CONTENT-->
-        <div class="page-content--bgf7">
-            <!-- BREADCRUMB-->
-            <section class="au-breadcrumb2">
-                <div class="container">
-                    <div class="row">
-                        <div class="col-md-12">
-                            <div class="au-breadcrumb-content">
-                                <div class="au-breadcrumb-left">
-                                    <span class="au-breadcrumb-span">You are here:</span>
-                                    <ul class="list-unstyled list-inline au-breadcrumb__list">
-                                        <li class="list-inline-item active">
-                                            <a href="#">BookTime</a>
-                                        </li>
-                                        <li class="list-inline-item seprate">
-                                            <span>/</span>
-                                        </li>
-                                        <li class="list-inline-item">Dashboard</li>
-                                    </ul>
-                                </div>
-                                <form class="au-form-icon--sm" method="get">
-                                    <input class="au-input--w300 au-input--style2"  name="q" value="{{ search_query }}" type="text" placeholder="Search . . .">
-                                    <button class="au-btn--submit2">
-                                        <i class="zmdi zmdi-search"></i>
-                                    </button>
-                                </form>
-                            </div>
+<!-- PAGE CONTENT-->
+<div class="page-content--bgf7">
+    <!-- BREADCRUMB-->
+    <section class="au-breadcrumb2 py-4">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-12">
+                    <div class="au-breadcrumb-content">
+                        <div class="au-breadcrumb-left">
+                            <span class="au-breadcrumb-span">You are here:</span>
+                            <ul class="list-unstyled list-inline au-breadcrumb__list">
+                                <li class="list-inline-item active">
+                                    <a href="#">BookTime</a>
+                                </li>
+                                <li class="list-inline-item seprate">
+                                    <span>/</span>
+                                </li>
+                                <li class="list-inline-item">Dashboard</li>
+                            </ul>
                         </div>
+                        <form class="au-form-icon--sm" method="get">
+                            <input class="au-input--w300 au-input--style2"  name="q" value="{{ search_query }}" type="text" placeholder="Search . . .">
+                            <button class="au-btn--submit2">
+                                <i class="zmdi zmdi-search"></i>
+                            </button>
+                        </form>
                     </div>
                 </div>
-            </section>
-            <!-- END BREADCRUMB-->
+            </div>
+        </div>
+    </section>
+    <!-- END BREADCRUMB-->
 
-            <!-- WELCOME-->
-            <section class="welcome p-t-10">
-                <div class="container">
-                    <div class="row">
-                        <div class="col-md-12">
-                            <h1 class="title-4">Welcome back
-                                <span>{{ request.user.username }}!</span>
-                            </h1>
-                            <hr class="line-seprate">
-                        </div>
-                    </div>
+    <!-- WELCOME-->
+    <section class="welcome p-t-10">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-12">
+                    <h1 class="title-4">Welcome back
+                        <span>{{ request.user.username }}!</span>
+                    </h1>
+                    <hr class="line-seprate">
                 </div>
-            </section>
-            <!-- END WELCOME-->
+            </div>
+        </div>
+    </section>
+    <!-- END WELCOME-->
 
- 
-   
-            <!-- DATA TABLE-->
-            <section class="p-t-20">
-                <div class="container">
-                    <div class="row">
-                        <div class="col-md-12">
-                            <h3 class="title-5 m-b-35">data table</h3>
-                            <div class="table-data__tool">
-                                <div class="table-data__tool-left">
-                                    <div class="rs-select2--light rs-select2--md">
-                                        <select class="js-select2" name="property">
-                                            <option selected="selected">All Properties</option>
-                                            <option value="">Option 1</option>
-                                            <option value="">Option 2</option>
-                                        </select>
-                                        <div class="dropDownSelect2"></div>
-                                    </div>
-                                    <div class="rs-select2--light rs-select2--sm">
-                                        <select class="js-select2" name="time">
-                                            <option selected="selected">Today</option>
-                                            <option value="">3 Days</option>
-                                            <option value="">1 Week</option>
-                                        </select>
-                                        <div class="dropDownSelect2"></div>
-                                    </div>
-                                    <button class="au-btn-filter">
-                                        <i class="zmdi zmdi-filter-list"></i>filters</button>
-                                </div>
-                                <div class="table-data__tool-right">
-                                    <a class="au-btn au-btn-icon au-btn--green au-btn--small" href="{% url 'dashboard:add_reader' %}">
-                                        <i class="zmdi zmdi-plus"></i>add reader
-                                    </a>
-                                    <!-- <div class="rs-select2--dark rs-select2--sm rs-select2--dark2">
-                                        <select class="js-select2" name="type">
-                                            <option selected="selected">Export</option>
-                                            <option value="">Option 1</option>
-                                            <option value="">Option 2</option>
-                                        </select>
-                                        <div class="dropDownSelect2"></div>
-                                    </div> -->
-                                </div>
+
+
+    <!-- DATA TABLE-->
+    <section class="p-t-20">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-12">
+                    <h3 class="title-5 m-b-35">data table</h3>
+                    <div class="table-data__tool">
+                        <div class="table-data__tool-left">
+                            <div class="rs-select2--light rs-select2--md">
+                                <select class="js-select2" name="property">
+                                    <option selected="selected">All Properties</option>
+                                    <option value="">Option 1</option>
+                                    <option value="">Option 2</option>
+                                </select>
+                                <div class="dropDownSelect2"></div>
                             </div>
-                            <div class="table-responsive table-responsive-data2">
-                                <table class="table table-data2">
-                                    <thead>
-                                        <tr>
-                                            <th>
-                                                <label class="au-checkbox">
-                                                    <input type="checkbox">
-                                                    <span class="au-checkmark"></span>
-                                                </label>
-                                            </th>
-                                            <th>Username</th>
-                                            <th>Full name</th>
-                                            <th>Email</th>
-                                            <th>Phone</th>
-                                            <th>Adress</th>
-                                            <th>Status</th>
-                                            <th>Balance</th>
-                                            <th></th>
-                                        </tr>
-                                    </thead>
-                                    <tbody>
-                                     
-                                        
-                                    {% for reader in readers %}    
-                                        {% if not reader.is_superuser %}
-                                            <tr class="tr-shadow">
-                                                <td>
-                                                    <label class="au-checkbox">
-                                                        <input type="checkbox">
-                                                        <span class="au-checkmark"></span>
-                                                    </label>
-                                                </td>
-                                                <td>{{ reader.username }}</td>
-                                                <td>{{ reader.first_name }} {{ reader.last_name }}</td>
-                                                <td>
-                                                    <span class="block-email">{{ reader.email }}</span>
-                                                </td>
-                                                <td>{{ reader.phone }}</td>
-                                                <td>{{ reader.address }}</td>
-                                                <td>
-                                                    <span class="status--process">{{ reader.status }}</span>
-                                                </td>
-                                                <td>{{ reader.balance }}</td>
-                                                <td>
-                                                    <div class="table-data-feature">
-                                                        <button class="item" data-toggle="tooltip" data-placement="top" title="Send">
-                                                            <i class="zmdi zmdi-mail-send"></i>
-                                                        </button>
-                                                        <a href="{% url 'dashboard:edit_reader' reader.id %}" class="item" data-toggle="tooltip" data-placement="top" title="Edit">
-                                                            <i class="zmdi zmdi-edit"></i>
-                                                        </a>
-                                                        <a href="{% url 'dashboard:delete_reader_confirm' reader.id %}" class="item" data-toggle="tooltip" data-placement="top" title="Delete">
-                                                            <i class="zmdi zmdi-delete"></i>
-                                                        </a>
-                                                        <button class="item" data-toggle="tooltip" data-placement="top" title="More">
-                                                            <i class="zmdi zmdi-more"></i>
-                                                        </button>
-                                                    </div>
-                                                </td>
-                                            </tr>
-                                            <tr class="spacer"></tr>
-                                        {% endif %}
-                                    {% endfor %} 
-                                    </tbody>
-                                </table>
+                            <div class="rs-select2--light rs-select2--sm">
+                                <select class="js-select2" name="time">
+                                    <option selected="selected">Today</option>
+                                    <option value="">3 Days</option>
+                                    <option value="">1 Week</option>
+                                </select>
+                                <div class="dropDownSelect2"></div>
                             </div>
+                            <button class="au-btn-filter">
+                                <i class="bi bi-funnel"></i>filter</button>
+                        </div>
+                        <div class="table-data__tool-right">
+                            <a class="au-btn au-btn-icon au-btn--green au-btn--small" href="{% url 'dashboard:add_reader' %}">
+                                <i class="zmdi zmdi-plus"></i>add reader
+                            </a>
+                            <!-- <div class="rs-select2--dark rs-select2--sm rs-select2--dark2">
+                                <select class="js-select2" name="type">
+                                    <option selected="selected">Export</option>
+                                    <option value="">Option 1</option>
+                                    <option value="">Option 2</option>
+                                </select>
+                                <div class="dropDownSelect2"></div>
+                            </div> -->
                         </div>
                     </div>
-                </div>
-            </section>
-            <!-- END DATA TABLE-->
-            <!-- COPYRIGHT-->
-            <section class="p-t-60 p-b-20">
-                <div class="container">
-                <div class="row">
-                    <div class="col-md-12">
-                    <div class="copyright">
-                        <!-- <p>Copyright © 2018 Colorlib. All rights reserved. Template by <a href="https://colorlib.com">Colorlib</a>.</p> -->
+                    <div class="table-responsive table-responsive-data2">
+                        <table class="table table-data2">
+                            <thead>
+                                <tr>
+                                    <th>
+                                        <label class="au-checkbox">
+                                            <input type="checkbox">
+                                            <span class="au-checkmark"></span>
+                                        </label>
+                                    </th>
+                                    <th>Username</th>
+                                    <th>Full name</th>
+                                    <th>Email</th>
+                                    <th>Phone</th>
+                                    <th>Adress</th>
+                                    <th>Status</th>
+                                    <th>Balance</th>
+                                    <th></th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                
+                                
+                            {% for reader in readers %}    
+                                {% if not reader.is_superuser %}
+                                    <tr class="tr-shadow">
+                                        <td>
+                                            <label class="au-checkbox">
+                                                <input type="checkbox">
+                                                <span class="au-checkmark"></span>
+                                            </label>
+                                        </td>
+                                        <td>{{ reader.username }}</td>
+                                        <td>{{ reader.first_name }} {{ reader.last_name }}</td>
+                                        <td>
+                                            <span class="block-email">{{ reader.email }}</span>
+                                        </td>
+                                        <td>{{ reader.phone }}</td>
+                                        <td>{{ reader.address }}</td>
+                                        <td>
+                                            <span class="status--process">{{ reader.status }}</span>
+                                        </td>
+                                        <td>{{ reader.balance }}</td>
+                                        <td>
+                                            <div class="table-data-feature">
+                                                <span class="my-1 mx-1">
+                                                    <a href="{% url 'dashboard:reader_messages' reader.id %}" class="item" data-toggle="tooltip" data-placement="top" title="Send message">
+                                                        <i class="zmdi zmdi-mail-send"></i>
+                                                    </a>
+                                                    <a href="{% url 'dashboard:payment' reader.id %}" class="item" data-toggle="tooltip" data-placement="top" title="Payment">
+                                                        <i class="bi bi-credit-card"></i>
+                                                    </a>
+                                                </span>
+                                                <span class="my-1 mx-1">
+                                                    <a href="{% url 'dashboard:edit_reader' reader.id %}" class="item" data-toggle="tooltip" data-placement="top" title="Edit">
+                                                        <i class="zmdi zmdi-edit"></i>
+                                                    </a>
+                                                    <a href="{% url 'dashboard:delete_reader_confirm' reader.id %}" class="item" data-toggle="tooltip" data-placement="top" title="Delete">
+                                                        <i class="zmdi zmdi-delete"></i>
+                                                    </a>
+                                                </span>
+                                            </div>
+                                        </td>
+                                    </tr>
+                                    <tr class="spacer"></tr>
+                                {% endif %}
+                            {% endfor %} 
+                            </tbody>
+                        </table>
                     </div>
-                    </div>
                 </div>
-                </div>
-            </section>
-            <!-- END COPYRIGHT-->
-            
+            </div>
+        </div>
+    </section>
+    <!-- END DATA TABLE-->
+    <!-- COPYRIGHT-->
+    <section class="p-t-60 p-b-20">
+        <div class="container">
+        <div class="row">
+            <div class="col-md-12">
+            <div class="copyright">
+                <!-- <p>Copyright © 2018 Colorlib. All rights reserved. Template by <a href="https://colorlib.com">Colorlib</a>.</p> -->
             </div>
             </div>
+        </div>
+        </div>
+    </section>
+    <!-- END COPYRIGHT-->
+    
+</div>
 {% endblock %}
