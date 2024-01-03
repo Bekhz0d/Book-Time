@@ -35,7 +35,42 @@ class DashboardView(SuperuserRequiredMixin, View):
         return render(request, 'dashboard/dashboard.html', context)
     
 
-    
+# class StatusNewView(View):
+#     def get(self, request):
+#         readers = Readers.objects.filter(status="New")
+
+#         search_query = request.GET.get('q', '')
+#         if search_query:
+#             readers = readers.filter(
+#                 Q(username__icontains=search_query) | 
+#                 Q(first_name__icontains=search_query) |
+#                 Q(last_name__icontains=search_query) |
+#                 Q(phone__icontains=search_query) |
+#                 Q(address__icontains=search_query) |
+#                 Q(email__icontains=search_query)
+#                 )
+#         context = {"readers": readers, "search_query": search_query}
+
+#         return render(request, 'dashboard/dashboard.html', context)
+
+
+# class StatusActiveView(View):
+#     def get(self, request):
+#         readers = Readers.objects.filter(status="Active")
+
+#         search_query = request.GET.get('q', '')
+#         if search_query:
+#             readers = readers.filter(
+#                 Q(username__icontains=search_query) | 
+#                 Q(first_name__icontains=search_query) |
+#                 Q(last_name__icontains=search_query) |
+#                 Q(phone__icontains=search_query) |
+#                 Q(address__icontains=search_query) |
+#                 Q(email__icontains=search_query)
+#                 )
+#         context = {"readers": readers, "search_query": search_query}
+
+#         return render(request, 'dashboard/dashboard.html', context)
 
 
 class ConfirmDeleteReaderView(SuperuserRequiredMixin, View):

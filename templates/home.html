@@ -14,9 +14,9 @@
                 <div class="card mb-4">
                   <div class="card-body">
                     <div class="media mb-3">
-                      <img src="{{ review.user.picture.url }}" class="d-block ui-w-40 rounded-circle" alt="">
+                      <img src="{{ user.picture.url }}" class="d-block ui-w-40 rounded-circle" alt="">
                       <div class="media-body ml-3">
-                        <b>{{ review.user.username }}</b> rated this book {{ review.stars_given }} stars
+                        <b>{{ review.reader.username }}</b> rated this book {{ review.stars_given }} stars
                         <div class="text-muted small">{{ review.created_at | date:"M d, Y" }}</div>
                       </div>
                     </div>
